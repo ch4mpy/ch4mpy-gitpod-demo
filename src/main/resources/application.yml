@@ -1,0 +1,23 @@
+issuer: https://dev-ch4mpy.eu.auth0.com/
+client-id: TyY0H7xkRMRe6lDf9F8EiNqCo8PdhICy
+client-secret: change-me
+
+server:
+  port: 8080
+  ssl:
+    enabled: false
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          oidc:
+            issuer-uri: ${issuer}
+        registration:
+          oidc:
+            authorization-grant-type: authorization_code
+            client-id: ${client-id}
+            client-secret: ${client-secret}
+            provider: oidc
+            scope: openid,profile,email,offline_access
